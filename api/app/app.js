@@ -30,15 +30,19 @@ app.post('/age', (req, res) => {
     data.date = new Date(data.date);
     data.birthdate = new Date(data.birthdate);
 
+
+
+     //data atual
+     const today = new Date();
+
+
     //checando validade do date
-    if(data.date<data.birthdate){
-        return res.status(400).json({message: 'Atributo date inválido. date deve ser uma data mais recente que birthdate'});
+    if(data.date<today){
+        return res.status(400).json({message: 'Atributo date inválido. date deve ser uma data no futuro'});
     }
 
  
 
-    //data atual
-    const today = new Date();
 
 
     //ageNow
